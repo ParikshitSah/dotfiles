@@ -1,4 +1,6 @@
 # ~/.zshrc
+export PATH=/opt/homebrew/bin:$PATH
+export PATH=usr/local/bin:$PATH
 
 eval "$(starship init zsh)"
 
@@ -29,5 +31,3 @@ fortune | cowsay -f dragon
 alias ls="ls --color=auto"
 
 
-export PATH=$HOME/.local/bin:$PATH
-export PATH=/opt/homebrew/bin:$PATH
