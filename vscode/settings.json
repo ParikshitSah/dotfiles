@@ -1,0 +1,29 @@
+{
+    "workbench.editorAssociations": {
+        "{git,gitlens,git-graph}:/**/*.{md,csv,svg}": "default"
+    },
+    "vscode-office.editorTheme": "Github Dark",
+    "files.autoSave": "afterDelay",
+    "editor.fontFamily": "monospace, Agave Nerd Font, JetBrains Mono",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "workbench.colorTheme": "Catppuccin Frappé",
+    "terminal.integrated.inheritEnv": false,
+    "vim.handleKeys": {
+        "<C-j>": false,
+        "<C-d>": true,
+        "<C-s>": false,
+        "<C-z>": false
+    },
+    "application.shellEnvironmentResolutionTimeout": 15,
+    "editor.lineNumbers": "relative",
+    "workbench.iconTheme": "catppuccin-frappe",
+    "catppuccin.accentColor": "rosewater",
+    "raspberry-pi-pico.python3Path": "/usr/bin/python3",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "window.confirmSaveUntitledWorkspace": false
+}
