@@ -78,6 +78,8 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+nnoremap <leader>l :NERDTree<CR>
+
 " Escape alternatives
 inoremap jk <Esc>
 inoremap kj <Esc>
@@ -88,6 +90,10 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'preservim/nerdtree'       " File explorer
 Plug 'vim-airline/vim-airline'  " Status line
+Plug 'vim-airline/vim-airline-themes'  
+let g:airline_theme='molokai'
+
+
 Plug 'tpope/vim-commentary'     " Commenting
 Plug 'tpope/vim-surround'       " Surround selections
 Plug 'airblade/vim-gitgutter'   " Git diff indicators
