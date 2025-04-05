@@ -171,11 +171,30 @@ else
     # 'code' command exists, now check for the extensions file
     if [ -f "$VSCODE_EXTENSIONS_FILE" ]; then
         print_info "'${BOLD}code${RESET}' command found and ${BOLD}$VSCODE_EXTENSIONS_FILE${RESET} exists."
-        print_info "Attempting to install VS Code extensions listed in the file..."
-        cat "$VSCODE_EXTENSIONS_FILE" | xargs -L 1 code --install-extension
-        print_info "Extension installation process initiated. ${YELLOW}Check VS Code for progress/errors.${RESET}"
+        print_info "Installing VS Code extensions one by one..."
+        echo "" # Add a newline for spacing
+
+        # Read the file line by line and install each extension
+        while IFS= read -r extension_id || [[ -n "$extension_id" ]]; do
+          # Skip empty lines or lines with only whitespace
+          if [[ -z "${extension_id// }" ]]; then
+              continue
+          fi
+
+          # Print message before installing the specific extension
+          print_info "  -> Installing: ${BOLD}${extension_id}${RESET}..."
+          # Execute the install command for the current extension ID
+          code --install-extension "$extension_id"
+          # You can check $? here for success/failure if needed
+
+        done < "$VSCODE_EXTENSIONS_FILE" # Feed the file into the loop
+
+        echo "" # Add a newline for spacing
+        print_success "Finished processing extensions list."
+        print_info "${YELLOW}Check terminal output above or VS Code for individual installation status/errors.${RESET}"
         echo ""
     else
+        # This part handles the case where the extensions file isn't found
         print_info "'${BOLD}code${RESET}' command found, but Extensions file not found at ${BOLD}$VSCODE_EXTENSIONS_FILE${RESET}"
         print_info "${YELLOW}Skipping automatic extension installation.${RESET}"
         echo ""
